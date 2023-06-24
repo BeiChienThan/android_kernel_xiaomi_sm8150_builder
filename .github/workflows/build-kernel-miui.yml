@@ -92,7 +92,7 @@ jobs:
         run: |
           export PATH="$GITHUB_WORKSPACE/proton-clang/bin:$PATH"
           export PATH="/usr/lib/ccache:$PATH"
-          git apply $GITHUB_WORKSPACE/.github/patches/4.14/*.patch
+          
           date=$(date +"%Y%m%d%H%M")
           middlever=r23
           echo "date=$date" >> $GITHUB_ENV
