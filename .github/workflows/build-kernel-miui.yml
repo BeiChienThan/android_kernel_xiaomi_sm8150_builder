@@ -12,8 +12,8 @@ jobs:
   build:
     strategy:
       matrix:
-        #device: [raphael, cepheus]
-        device: [cepheus]
+        device: [raphael]
+        
 
     name: Build MIUI-Kernel-${{ matrix.device }}
     runs-on: ubuntu-latest
@@ -70,7 +70,7 @@ jobs:
         if: ${{ inputs.kernelsu != 'false' }}
         working-directory: kernel-source
         run: |
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash - main
           defconfig="arch/arm64/configs/${{ matrix.device }}_defconfig"
           echo "CONFIG_MODULES=y" >> $defconfig
           echo "CONFIG_KPROBES=y" >> $defconfig
