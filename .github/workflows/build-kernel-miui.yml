@@ -70,7 +70,7 @@ jobs:
         if: ${{ inputs.kernelsu != 'false' }}
         working-directory: kernel-source
         run: |
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash - main
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
           defconfig="arch/arm64/configs/${{ matrix.device }}_defconfig"
           echo "CONFIG_MODULES=y" >> $defconfig
           echo "CONFIG_KPROBES=y" >> $defconfig
